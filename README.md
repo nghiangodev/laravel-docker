@@ -1,61 +1,157 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# ![N|laravel](https://laravel.com//img/logomark.min.svg) ![N|laravel](https://laravel.com//img/logotype.min.svg)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Docker daily useful commands
+Below is the list of most useful docker commands.
 
-## About Laravel
+Download docker image from the repository
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Install the dependencies and devDependencies and start the server.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```sh
+docker pull image_name
+```
+Check a list of all docker images
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```sh
+docker images
+```
 
-## Learning Laravel
+Check if Docker containers are up & running
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```sh
+docker ps -a
+```
+Start and stop a container
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```sh
+docker ps -a
+```
+Check if Docker containers are up & running
 
-## Laravel Sponsors
+```sh
+docker start container_name
+docker stop container_name
+```
+Get inside of running docker container
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```sh
+docker exec -i -t container_name command
+ 
+e.g for ubuntu image
+docker exec -i -t ubuntu_container_name bash
+```
+Remove all docker containers
 
-### Premium Partners
+```sh
+docker rm $(docker ps -a -q)
+```
+Forcefully remove all docker containers
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+```sh
+docker rm -f $(docker ps -a -q)
+```
+Remove all docker images
 
-## Contributing
+```sh
+docker rmi $(docker images -a -q)
+```
+ Forcefully remove all docker images
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```sh
+docker rmi -f $(docker images -a -q)
+```
+See the logs from docker container
 
-## Code of Conduct
+```sh
+docker logs -ft container_name
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Docker compose commands
+Build all Images
 
-## Security Vulnerabilities
+```sh
+docker-compose build
+```
+Build and run all containers
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```sh
+docker-compose up -d
+```
+Stop all containers
 
-## License
+```sh
+docker-compose stop
+```
+Remove all containers
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```sh
+docker-compose rm
+```
+Restart only one container
+
+```sh
+docker-compose restart container_name
+```
+
+### MY SQL Docker Container
+
+Sometimes we need to run SQL queries inside docker-containers to check database data. Below is the list of useful commands to run inside my SQL container.
+
+Get inside running MySQL container
+```sh
+docker exec -it mysql_container-name mysql -uroot -p
+```
+
+“root” is the username for MySQL database.
+After running above command it will ask you a password.
+
+Select database
+```sh
+USE Database_name
+```
+
+Show tables
+```sh
+show tables;
+```
+
+Select table
+```sh
+docker exec mysql_container-name /usr/bin/mysqldump
+-u root 
+--password=root 
+database_name > backup.sql
+```
+
+Restore MySQL database to docker container
+```sh
+cat backup.sql | docker exec -i mysql_container-name 
+/usr/bin/mysql
+-u root 
+--password=root database_name
+```
+
+Take back of MySQL database from docker container
+```sh
+docker exec mysql_container-name /usr/bin/mysqldump
+-u root 
+--password=root 
+database_name > backup.sql
+```
+
+#### Docker Container Stats command
+To find out CPU, memory usage of each container.
+
+```sh
+docker stats container_name
+```
+See memory and usage for all docker containers
+```sh
+docker ps -q | xargs  docker stats --no-stream
+``` 
+https://hub.docker.com/_/mysql
+        https://webomnizz.com/containerize-your-laravel-application-with-docker-compose/
+        https://www.youtube.com/watch?v=Ra1CetTcSeo&feature=emb_logo
+        https://hub.docker.com/_/nginx
+        https://docs.docker.com/compose/compose-file/
+
