@@ -1,5 +1,49 @@
 # ![N|laravel](https://laravel.com//img/logomark.min.svg) ![N|laravel](https://laravel.com//img/logotype.min.svg)
 
+##  Docker daily usage commands
+
+Build and run all containers
+
+```sh
+docker-compose up -d
+```
+
+Check if Docker containers are up & running
+
+```sh
+docker ps -a
+```
+
+Get inside of running docker container
+
+```sh
+docker exec -i -t container_name command
+```
+
+run composer after get inside docker container
+
+```sh
+var/www/html: composer install
+```
+
+run migrate
+
+```sh
+var/www/html: php artisan migrate
+```
+
+run serve
+
+```sh
+http://127.0.0.1:8080/
+```
+
+for sql 
+
+```sh
+docker exec -it mysql_container-name mysql -user -p
+```
+
 ### Docker daily useful commands
 Below is the list of most useful docker commands.
 
@@ -16,11 +60,6 @@ Check a list of all docker images
 docker images
 ```
 
-Check if Docker containers are up & running
-
-```sh
-docker ps -a
-```
 Start and stop a container
 
 ```sh
@@ -72,11 +111,7 @@ Build all Images
 ```sh
 docker-compose build
 ```
-Build and run all containers
 
-```sh
-docker-compose up -d
-```
 Stop all containers
 
 ```sh
