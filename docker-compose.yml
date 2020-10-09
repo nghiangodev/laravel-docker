@@ -1,5 +1,8 @@
 version: '3.7'
 
+networks:
+  laravel:
+
 services:
 #  web:
 #    container_name: ${APP_NAME}
@@ -29,6 +32,8 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=""
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    networks:
+      - laravel
 
   app:
     build:
@@ -39,3 +44,20 @@ services:
       - 8080:80
     volumes:
       - ./:/var/www/html
+    networks:
+      - laravel
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    container_name: phpmyadmin
+    depends_on:
+      - db
+    ports:
+    - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: secret
+    networks:
+      - laravel
+
