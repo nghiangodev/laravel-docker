@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+#  web:
+#    container_name: ${APP_NAME}
+#    build:
+#      context: ./docker/web
+#    ports:
+#      - 8080:80
+#    volumes:
+#      - ./:/var/www/app
+#    depends_on:
+#      - php
+#      - mysql
+#    networks:
+#      - laravel
+
+  db:
+    container_name: mysql
+    image: mysql:5.7
+    restart: always
+    tty: true
+    ports:
+      - "3306"
+    volumes:
+    - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=cloudteam_basesource
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=""
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: 'docker-laravel'
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www/html
