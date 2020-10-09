@@ -149,9 +149,9 @@ See memory and usage for all docker containers
 ```sh
 docker ps -q | xargs  docker stats --no-stream
 ``` 
-https://hub.docker.com/_/mysql
-        https://webomnizz.com/containerize-your-laravel-application-with-docker-compose/
-        https://www.youtube.com/watch?v=Ra1CetTcSeo&feature=emb_logo
-        https://hub.docker.com/_/nginx
-        https://docs.docker.com/compose/compose-file/
+- https://hub.docker.com/_/mysql
+- https://webomnizz.com/containerize-your-laravel-application-with-docker-compose/
+- https://www.youtube.com/watch?v=Ra1CetTcSeo&feature=emb_logo
+- https://hub.docker.com/_/nginx
+- https://docs.docker.com/compose/compose-file/
 
