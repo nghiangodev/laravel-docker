@@ -25,9 +25,11 @@
     <div class="container">
         <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-inner--text" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
+                @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
             </ul>
             <hr class="d-lg-none" />
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">

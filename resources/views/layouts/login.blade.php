@@ -33,7 +33,7 @@
                 <span class="text-muted">Remember me</span>
             </label>
         </div>
-        <div class="custom-control custom-control-alternative custom-checkbox mt-3" style="margin-left: -60px;">
+        <div class="col-12 mt-3">
             @if (Route::has('password.request'))
                 <a class="btn btn-link" href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
