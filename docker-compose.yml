@@ -4,19 +4,6 @@ networks:
   laravel:
 
 services:
-#  web:
-#    container_name: ${APP_NAME}
-#    build:
-#      context: ./docker/web
-#    ports:
-#      - 8080:80
-#    volumes:
-#      - ./:/var/www/app
-#    depends_on:
-#      - php
-#      - mysql
-#    networks:
-#      - laravel
 
   db:
     container_name: mysql
