@@ -4,7 +4,6 @@ networks:
   laravel:
 
 services:
-
   db:
     container_name: mysql
     image: mysql:5.7
@@ -47,4 +46,3 @@ services:
       MYSQL_ROOT_PASSWORD: secret
     networks:
       - laravel
-
