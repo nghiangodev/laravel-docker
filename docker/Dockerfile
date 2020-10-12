@@ -27,7 +27,3 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN chown -R www-data:www-data /var/www/html \
     && a2enmod rewrite
 
-RUN npm install -g bower
-RUN npm install --global gulp-cli
-RUN npm run dev
-RUN npm run watch
