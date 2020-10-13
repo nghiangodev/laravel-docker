@@ -1,5 +1,5 @@
+#
 version: '3.7'
-
 networks:
   laravel:
 
@@ -46,3 +46,6 @@ services:
       MYSQL_ROOT_PASSWORD: secret
     networks:
       - laravel
+
+#    nodejs:
+
