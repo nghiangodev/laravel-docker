@@ -26,6 +26,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function indexListDemo()
+    {
+        return view('layouts.pages.index');
+    }
+
     public function profile()
     {
         return view('layouts/pages/profile');

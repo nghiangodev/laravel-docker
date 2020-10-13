@@ -27,4 +27,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 
+Route::get('/index-list-demo', [App\Http\Controllers\HomeController::class, 'indexListDemo'])->name('index_list_demo');
+
 

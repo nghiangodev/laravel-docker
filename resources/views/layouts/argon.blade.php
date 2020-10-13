@@ -22,12 +22,7 @@
 <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
         <!-- Brand -->
-        <div class="sidenav-header  align-items-center">
-            <a class="navbar-brand" href="javascript:void(0)">
-                <img src="https://laravel.com/img/logomark.min.svg" class="navbar-brand-img" alt="...">
-                <img src="https://laravel.com/img/logotype.min.svg" class="navbar-brand-img" alt="...">
-            </a>
-        </div>
+        @include('layouts.components._logo')
         @include('layouts.components._menu')
     </div>
 </nav>

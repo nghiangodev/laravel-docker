@@ -64,7 +64,9 @@
     </div>
 </div>
 <!-- Footer -->
+<div class="text-center">
 @include('layouts.components._footer')
+</div>
 
 <!-- Argon Scripts -->
 <!-- Core -->
