@@ -1,4 +1,4 @@
-FROM  php:7.4.1-apache
+FROM php:7.4.1-apache
 
 USER root
 
@@ -26,6 +26,3 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN chown -R www-data:www-data /var/www/html \
     && a2enmod rewrite
-
-RUN chown -R $USER:$USER ~/laravel-docker
-COPY --chown=www:www . /var/www/html/public/storage
