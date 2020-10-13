@@ -40,7 +40,6 @@
 <div class="main-content">
     <!-- Header -->
     <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
-
         <div class="separator separator-bottom separator-skew zindex-100">
             <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
@@ -57,6 +56,15 @@
                             <small>Sign In</small>
                         </div>
                         @include('layouts.login')
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-5 ml--5">
+                <div class="card bg-secondary border-0 mb-0">
+                    <div class="card-body px-lg-5 py-lg-5">
+                        <div class="login100-pic js-tilt mb-7 text-center">
+                            <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="IMG">
+                        </div>
                     </div>
                 </div>
             </div>

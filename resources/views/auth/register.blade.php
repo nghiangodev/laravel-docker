@@ -48,13 +48,22 @@
     <div class="container mt--8 pb-5">
         <!-- Table -->
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8">
+            <div class="col-lg-5 col-md-7">
                 <div class="card bg-secondary border-0">
                     <div class="card-body px-lg-5 py-lg-5">
-                        <div class="text-center text-muted mb-4">
+                        <div class="text-center text-muted mb-3">
                             <small>Sign up</small>
                         </div>
                         @include('auth.component.register')
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-5 ml--5">
+                <div class="card bg-secondary border-0 mb-0">
+                    <div class="card-body px-lg-5 py-lg-5">
+                        <div class="login100-pic js-tilt mb-8 text-center">
+                            <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="IMG">
+                        </div>
                     </div>
                 </div>
             </div>
