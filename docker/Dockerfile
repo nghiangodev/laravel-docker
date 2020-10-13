@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         libzip-dev \
         libonig-dev \
+        git \
         zip \
         curl \
         unzip \
@@ -30,4 +31,3 @@ RUN composer global require hirak/prestissimo
 
 RUN chown -R www-data:www-data /var/www/html \
     && a2enmod rewrite
-
