@@ -22,7 +22,12 @@ RUN apt-get update && apt-get install -y \
 
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && ln -s $(composer config --global home) /root/composer
+
+ENV PATH=$PATH:/root/composer/vendor/bin COMPOSER_ALLOW_SUPERUSER=1
+
+RUN composer global require hirak/prestissimo
 
 RUN chown -R www-data:www-data /var/www/html \
     && a2enmod rewrite
+
