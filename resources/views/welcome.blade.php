@@ -59,15 +59,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 col-md-5 ml--5">
-                <div class="card bg-secondary border-0 mb-0">
-                    <div class="card-body px-lg-5 py-lg-5">
-                        <div class="login100-pic js-tilt mb-7 text-center">
-                            <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="IMG">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
